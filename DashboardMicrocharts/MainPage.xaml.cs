@@ -18,19 +18,19 @@ namespace DashboardMicrocharts
             var entries = new List<Microcharts.Entry> {
                 new Microcharts.Entry(200)
                 {
-                    Label = "January",
+                    Label = "Janeiro",
                     ValueLabel = "200",
                     Color = SKColor.Parse("#266489")
                 },
                 new Microcharts.Entry(400)
                 {
-                    Label = "February",
+                    Label = "Fevereiro",
                     ValueLabel = "400",
                     Color = SKColor.Parse("#68B9C0")
                 },
                 new Microcharts.Entry(-100)
                 {
-                    Label = "March",
+                    Label = "Março",
                     ValueLabel = "-100",
                     Color = SKColor.Parse("#90D585")
                 }
