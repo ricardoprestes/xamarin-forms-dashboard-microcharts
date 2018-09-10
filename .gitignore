@@ -3,3 +3,11 @@
 ################################################################################
 
 /.vs/DashboardMicrocharts/v15
+*.suo
+/.vs/DashboardMicrocharts/DesignTimeBuild
+/DashboardMicrocharts/bin/Debug/netstandard2.0
+/DashboardMicrocharts/obj
+/DashboardMicrocharts.Android/bin/Debug
+/DashboardMicrocharts.Android/obj
+*.user
+/.vs
