@@ -1,7 +1,10 @@
 ﻿using DashboardMicrocharts.Models;
 using Microcharts;
+using Newtonsoft.Json;
 using SkiaSharp;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using Xamarin.Forms;
 
 namespace DashboardMicrocharts
@@ -15,36 +18,15 @@ namespace DashboardMicrocharts
         {
             InitializeComponent();
 
-            var entries = new List<Microcharts.Entry> {
-                new Microcharts.Entry(200)
-                {
-                    Label = "Janeiro",
-                    ValueLabel = "200",
-                    Color = SKColor.Parse("#266489")
-                },
-                new Microcharts.Entry(400)
-                {
-                    Label = "Fevereiro",
-                    ValueLabel = "400",
-                    Color = SKColor.Parse("#68B9C0")
-                },
-                new Microcharts.Entry(-100)
-                {
-                    Label = "Março",
-                    ValueLabel = "-100",
-                    Color = SKColor.Parse("#90D585")
-                }
-            };
-
-            Dashboards = new List<DashboardItem>
+            var assembly = IntrospectionExtensions.GetTypeInfo(typeof(MainPage)).Assembly;
+            Stream stream = assembly.GetManifestResourceStream("DashboardMicrocharts.dashboards.json");
+            string json = "";
+            using (var reader = new StreamReader(stream))
             {
-                new DashboardItem { Name = "BarChart", Type = EChartType.BarChart, Entries = entries},
-                new DashboardItem { Name = "PointChart", Type = EChartType.PointChart, Entries = entries},
-                new DashboardItem { Name = "LineChart", Type = EChartType.LineChart, Entries = entries},
-                new DashboardItem { Name = "DonutChart", Type = EChartType.DonutChart, Entries = entries},
-                new DashboardItem { Name = "RadialGaugeChart", Type = EChartType.RadialGaugeChart, Entries = entries},
-                new DashboardItem { Name = "RadarChart", Type = EChartType.RadarChart, Entries = entries}
-            };
+                json = reader.ReadToEnd();
+            }
+
+            Dashboards = JsonConvert.DeserializeObject<List<DashboardItem>>(json);
         }
 
         protected override void OnAppearing()
@@ -58,22 +40,22 @@ namespace DashboardMicrocharts
                 switch (item.Type)
                 {
                     case EChartType.BarChart:
-                        chart = new BarChart { Entries = item.Entries };
+                        chart = new BarChart { Entries = GetEntries(item) };
                         break;
                     case EChartType.PointChart:
-                        chart = new PointChart { Entries = item.Entries };
+                        chart = new PointChart { Entries = GetEntries(item) };
                         break;
                     case EChartType.LineChart:
-                        chart = new LineChart { Entries = item.Entries };
+                        chart = new LineChart { Entries = GetEntries(item) };
                         break;
                     case EChartType.DonutChart:
-                        chart = new DonutChart { Entries = item.Entries };
+                        chart = new DonutChart { Entries = GetEntries(item) };
                         break;
                     case EChartType.RadialGaugeChart:
-                        chart = new RadialGaugeChart { Entries = item.Entries };
+                        chart = new RadialGaugeChart { Entries = GetEntries(item) };
                         break;
                     case EChartType.RadarChart:
-                        chart = new RadarChart { Entries = item.Entries };
+                        chart = new RadarChart { Entries = GetEntries(item) };
                         break;
                     default:
                         break;
@@ -86,7 +68,21 @@ namespace DashboardMicrocharts
                 chartView.Chart = chart;
                 slCharts.Children.Add(chartView);
             }
+        }
 
+        List<Microcharts.Entry> GetEntries(DashboardItem dashboard)
+        {
+            var entries = new List<Microcharts.Entry>();
+            foreach (var serie in dashboard.Series)
+            {
+                entries.Add(new Microcharts.Entry(serie.Value)
+                {
+                    Label = serie.Label,
+                    ValueLabel = serie.ValueLabel,
+                    Color = SKColor.Parse(serie.Color)
+                });
+            }
+            return entries;
         }
 
     }

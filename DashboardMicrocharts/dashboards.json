@@ -1,0 +1,119 @@
+[{
+    "Name": "BarChart",
+    "Type": 0,
+    "Series": [{
+        "Label": "Janeiro",
+		"Value": 200.0,
+        "ValueLabel": "200",
+        "Color": "#266489"
+    }, {
+        "Label": "Fevereiro",
+		"Value": 400.0,
+        "ValueLabel": "400",
+        "Color": "#68B9C0"
+    }, {
+        "Label": "Março",
+		"Value": -100.0,
+        "ValueLabel": "-100",
+        "Color": "#90D585"
+    }]
+}, {
+    "Name": "PointChart",
+    "Type": 1,
+    "Series": [{
+        "Label": "Janeiro",
+		"Value": 200.0,
+        "ValueLabel": "200",
+        "Color": "#266489"
+    }, {
+        "Label": "Fevereiro",
+		"Value": 400.0,
+        "ValueLabel": "400",
+        "Color": "#68B9C0"
+    }, {
+        "Label": "Março",
+		"Value": -100.0,
+        "ValueLabel": "-100",
+        "Color": "#90D585"
+    }]
+}, {
+    "Name": "LineChart",
+    "Type": 2,
+    "Series": [{
+        "Label": "Janeiro",
+		"Value": 200.0,
+        "ValueLabel": "200",
+        "Color": "#266489"
+    }, {
+        "Label": "Fevereiro",
+		"Value": 400.0,
+        "ValueLabel": "400",
+        "Color": "#68B9C0"
+    }, {
+        "Label": "Março",
+		"Value": -100.0,
+        "ValueLabel": "-100",
+        "Color": "#90D585"
+    }]
+}, {
+    "Name": "DonutChart",
+    "Type": 3,
+    "Series": [{
+        "Label": "Janeiro",
+		"Value": 200.0,
+        "ValueLabel": "200",
+        "Color": "#266489"
+    }, {
+        "Label": "Fevereiro",
+		"Value": 400.0,
+        "ValueLabel": "400",
+        "Color": "#68B9C0"
+    }, {
+        "Label": "Março",
+		"Value": -100.0,
+        "ValueLabel": "-100",
+        "Color": "#90D585"
+    }]
+}, {
+    "Name": "RadialGaugeChart",
+    "Type": 4,
+    "Series": [{
+        "Label": "Janeiro",
+		"Value": 200.0,
+        "ValueLabel": "200",
+        "Color": "#266489"
+    }, {
+        "Label": "Fevereiro",
+		"Value": 400.0,
+        "ValueLabel": "400",
+        "Color": "#68B9C0"
+    }, {
+        "Label": "Março",
+		"Value": -100.0,
+        "ValueLabel": "-100",
+        "Color": "#90D585"
+    }]
+}, {
+    "Name": "RadarChart",
+    "Type": 5,
+  "Series": [
+    {
+      "Label": "Janeiro",
+      "Value": 200.0,
+      "ValueLabel": "200",
+      "Color": "#266489"
+    },
+    {
+      "Label": "Fevereiro",
+      "Value": 400.0,
+      "ValueLabel": "400",
+      "Color": "#68B9C0"
+    },
+    {
+      "Label": "Março",
+      "Value": -100.0,
+      "ValueLabel": "-100",
+      "Color": "#90D585"
+    }
+  ]
+}]

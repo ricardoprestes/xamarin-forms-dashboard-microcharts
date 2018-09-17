@@ -1,7 +1,4 @@
-﻿using Microcharts;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace DashboardMicrocharts.Models
 {
@@ -9,7 +6,7 @@ namespace DashboardMicrocharts.Models
     {
         public string Name { get; set; }
         public EChartType Type { get; set; }
-        public List<Entry> Entries { get; set; }
+        public List<Serie> Series { get; set; }
     }
 
     public enum EChartType
