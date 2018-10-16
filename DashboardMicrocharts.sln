@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DashboardMicrocharts", "Das
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DashboardMicrocharts.Android", "DashboardMicrocharts.Android\DashboardMicrocharts.Android.csproj", "{816FF0D4-4152-4294-BF10-07A5168D872C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiDashboard", "ApiDashboard\ApiDashboard.csproj", "{6EDCB7A3-38CC-4958-A0D2-6EB91E388762}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{816FF0D4-4152-4294-BF10-07A5168D872C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{816FF0D4-4152-4294-BF10-07A5168D872C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{816FF0D4-4152-4294-BF10-07A5168D872C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6EDCB7A3-38CC-4958-A0D2-6EB91E388762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EDCB7A3-38CC-4958-A0D2-6EB91E388762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EDCB7A3-38CC-4958-A0D2-6EB91E388762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EDCB7A3-38CC-4958-A0D2-6EB91E388762}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

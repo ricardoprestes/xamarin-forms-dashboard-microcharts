@@ -11,3 +11,5 @@
 /DashboardMicrocharts.Android/obj
 *.user
 /.vs
+/ApiDashboard/obj/Debug
+/packages
