@@ -13,3 +13,5 @@
 /.vs
 /ApiDashboard/obj/Debug
 /packages
+/ApiDashboard/bin/Release/Publish
+/ApiDashboard/obj/Release

@@ -4,7 +4,9 @@ using Newtonsoft.Json;
 using SkiaSharp;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Reflection;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace DashboardMicrocharts
@@ -17,22 +19,28 @@ namespace DashboardMicrocharts
         public MainPage()
         {
             InitializeComponent();
-
-            var assembly = IntrospectionExtensions.GetTypeInfo(typeof(MainPage)).Assembly;
-            Stream stream = assembly.GetManifestResourceStream("DashboardMicrocharts.dashboards.json");
-            string json = "";
-            using (var reader = new StreamReader(stream))
-            {
-                json = reader.ReadToEnd();
-            }
-
-            Dashboards = JsonConvert.DeserializeObject<List<DashboardItem>>(json);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
+            GetCharts();
+        }
+
+        async Task GetCharts()
+        {
+            var client = new HttpClient();
+            var response = await client.GetAsync("http://172.20.5.160:81/api/dashboard");
+            var json = response.Content.ReadAsStringAsync().Result;
+            if (string.IsNullOrWhiteSpace(json))
+                return;
+            Dashboards = JsonConvert.DeserializeObject<List<DashboardItem>>(json);
+            ShowCharts();
+        }
+
+        void ShowCharts()
+        {
             Chart chart = null;
 
             foreach (var item in Dashboards)
